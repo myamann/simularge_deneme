@@ -45,24 +45,24 @@ See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-
 
  #1
  --
- ![foto-1]([https://github.com/myamann/Shop-App-Flutter/blob/master/ss/1.JPG?raw=true](https://github.com/myamann/simularge_deneme/blob/master/src/assets/ss/1_ss.png?raw=true))
+ ![ss-1](https://github.com/myamann/simularge_deneme/blob/master/src/assets/ss/1_ss.png?raw=true)
  
  #2
  --
- ![foto-2](https://github.com/myamann/Shop-App-Flutter/blob/master/ss/2.JPG?raw=true)
+ ![ss-2](https://github.com/myamann/simularge_deneme/blob/master/src/assets/ss/2_ss.png?raw=true)
  
  #3
  --
- ![foto-3](https://github.com/myamann/Shop-App-Flutter/blob/master/ss/3.JPG?raw=true)
+ ![ss-3](https://github.com/myamann/simularge_deneme/blob/master/src/assets/ss/3_ss.png?raw=true)
   
  #4 
  --
- ![foto-4](https://github.com/myamann/Shop-App-Flutter/blob/master/ss/4.JPG?raw=true)
+ ![ss-4](https://github.com/myamann/simularge_deneme/blob/master/src/assets/ss/4_ss.png?raw=true)
   
  #5 
  --
- ![foto-5](https://github.com/myamann/Shop-App-Flutter/blob/master/ss/5.JPG?raw=true)
+ ![ss-5](https://github.com/myamann/simularge_deneme/blob/master/src/assets/ss/5_ss.png?raw=true)
  
  #6
  --
- ![foto-6](https://github.com/myamann/Shop-App-Flutter/blob/master/ss/6.JPG?raw=true)
+ ![ss-6](https://github.com/myamann/simularge_deneme/blob/master/src/assets/ss/6_ss.png?raw=true)

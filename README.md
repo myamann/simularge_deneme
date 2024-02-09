@@ -1,3 +1,31 @@
+
+  ## ScreenShots
+
+ #1
+ --
+ ![ss-1](https://github.com/myamann/simularge_deneme/blob/master/src/assets/ss/1_ss.png?raw=true)
+ 
+ #2
+ --
+ ![ss-2](https://github.com/myamann/simularge_deneme/blob/master/src/assets/ss/2_ss.png?raw=true)
+ 
+ #3
+ --
+ ![ss-3](https://github.com/myamann/simularge_deneme/blob/master/src/assets/ss/3_ss.png?raw=true)
+  
+ #4 
+ --
+ ![ss-4](https://github.com/myamann/simularge_deneme/blob/master/src/assets/ss/4_ss.png?raw=true)
+  
+ #5 
+ --
+ ![ss-5](https://github.com/myamann/simularge_deneme/blob/master/src/assets/ss/5_ss.png?raw=true)
+ 
+ #6
+ --
+ ![ss-6](https://github.com/myamann/simularge_deneme/blob/master/src/assets/ss/6_ss.png?raw=true)
+
+
 # Quasar App (quasar-project)
 
 A Quasar Project
@@ -40,29 +68,3 @@ quasar build
 ### Customize the configuration
 See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
 
-
-  ## ScreenShots
-
- #1
- --
- ![ss-1](https://github.com/myamann/simularge_deneme/blob/master/src/assets/ss/1_ss.png?raw=true)
- 
- #2
- --
- ![ss-2](https://github.com/myamann/simularge_deneme/blob/master/src/assets/ss/2_ss.png?raw=true)
- 
- #3
- --
- ![ss-3](https://github.com/myamann/simularge_deneme/blob/master/src/assets/ss/3_ss.png?raw=true)
-  
- #4 
- --
- ![ss-4](https://github.com/myamann/simularge_deneme/blob/master/src/assets/ss/4_ss.png?raw=true)
-  
- #5 
- --
- ![ss-5](https://github.com/myamann/simularge_deneme/blob/master/src/assets/ss/5_ss.png?raw=true)
- 
- #6
- --
- ![ss-6](https://github.com/myamann/simularge_deneme/blob/master/src/assets/ss/6_ss.png?raw=true)

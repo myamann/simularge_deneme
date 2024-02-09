@@ -2,8 +2,9 @@ import { defineStore } from "pinia";
 
 export const useProjectStore = defineStore("project", {
   state: () => ({
-    counter: 0,
-    isUserPremium: true,
+    username: "",
+    email: "",
+    isUserPremium: false,
   }),
   getters: {
     // doubleCount: (state) => state.counter * 2,

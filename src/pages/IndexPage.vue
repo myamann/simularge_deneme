@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex flex-center justify-around">
-    <div class="row">
+    <div class="container q-gutter-lg q-pa-md">
       <div class="col-3">
         <q-card class="my-card bg-secondary text-white cardWidth">
           <q-card-section>
@@ -16,7 +16,9 @@
           <q-separator dark />
 
           <q-card-actions>
-            <q-btn flat @click="goToFormPage('version_one')"> Forma Git</q-btn>
+            <q-btn outline @click="goToFormPage('version_one')">
+              Forma Git</q-btn
+            >
           </q-card-actions>
         </q-card>
       </div>
@@ -34,7 +36,9 @@
           <q-separator dark />
 
           <q-card-actions>
-            <q-btn flat @click="goToFormPage('version_two')">Forma Git</q-btn>
+            <q-btn outline @click="goToFormPage('version_two')"
+              >Forma Git</q-btn
+            >
           </q-card-actions>
         </q-card>
       </div>
@@ -53,7 +57,7 @@
           <q-separator dark />
 
           <q-card-actions>
-            <q-btn flat @click="goToFormPage('version_three')">
+            <q-btn outline @click="goToFormPage('version_three')">
               Forma Git</q-btn
             >
           </q-card-actions>
@@ -63,7 +67,7 @@
       <div class="col-3">
         <q-card class="my-card bg-primary text-white cardWidth">
           <q-card-section>
-            <div class="text-h6">VERSION 4 - PREMIUM ONLY</div>
+            <div class="text-h6">VERSION 4 - PREMIUM</div>
           </q-card-section>
 
           <q-card-section>
@@ -74,7 +78,9 @@
           <q-separator dark />
 
           <q-card-actions>
-            <q-btn flat @click="goToFormPage('version_four')">Forma Git</q-btn>
+            <q-btn outline @click="goToFormPage('version_four')"
+              >Forma Git</q-btn
+            >
           </q-card-actions>
         </q-card>
       </div>
@@ -95,7 +101,8 @@ const projectStore = useProjectStore();
 const isUserPremium = ref(projectStore.isUserPremium);
 
 function goToFormPage(formType) {
-  if (!isUserPremium.value && formType == "form_four") {
+  console.log("goToFormPage", formType);
+  if (isUserPremium.value == false && formType == "version_four") {
     alert("Lütfem Premium Üyelik Alın.");
   } else {
     router.push(`/${formType}`);
@@ -104,7 +111,12 @@ function goToFormPage(formType) {
 </script>
 
 <style scoped>
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 .cardWidth {
-  width: 50%;
+  width: 250px;
 }
 </style>

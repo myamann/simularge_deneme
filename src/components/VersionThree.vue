@@ -1,7 +1,9 @@
 <template>
   <q-page class="column row q-pa-sm" :key="randomKey">
     <h6 class="row">#Version3</h6>
-    <div class="row">
+    <div v-if="!isLoaded">Yükleniyor</div>
+
+    <div v-if="isLoaded" class="row">
       <!-- Inputs form -->
 
       <q-form class="col-2 q-px-xs">
@@ -83,6 +85,7 @@ const {
   toggleChart,
   showChartButtonLabel,
   showChartButtonColor,
+  isLoaded,
 } = FormFactory();
 </script>
 

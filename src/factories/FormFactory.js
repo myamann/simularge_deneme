@@ -2,6 +2,8 @@ import { ref, reactive, onMounted, onBeforeMount, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { VuePlotly } from "vue3-plotly";
 import Plotly from "plotly.js-dist";
+import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
+import { db } from "../firebase/index";
 
 export default function FormFactory() {
   const router = useRouter();
@@ -14,6 +16,7 @@ export default function FormFactory() {
   const Addition = ref(0);
   const Multiplication = ref(0);
   const isChartVisible = ref(false);
+  const isLoaded = ref(false);
 
   const MAX_DATA_POINTS = ref(5);
 
@@ -36,54 +39,8 @@ export default function FormFactory() {
   });
 
   const formData = ref({
-    inputs: {
-      ID0: {
-        type: "textfield",
-        disabled: false,
-        label: "Inputs",
-        bgColor: "orange",
-      },
-      ID1: {
-        type: "textfield",
-        disabled: false,
-        label: "X",
-        bgColor: "white",
-      },
-      ID2: {
-        type: "textfield",
-        disabled: false,
-        label: "Y",
-        bgColor: "white",
-      },
-    },
-    outputs: {
-      ID0: {
-        type: "textfield",
-        disabled: false,
-        label: "Results",
-        bgColor: "green",
-      },
-      ID1: {
-        type: "textfield",
-        disabled: false,
-        label: "Addition",
-        bgColor: "white",
-      },
-      ID2: {
-        type: "textfield",
-        disabled: false,
-        label: "Multiplication",
-        bgColor: "white",
-      },
-      ID3: {
-        type: "button",
-        disabled: false,
-        label: "Show Chart",
-        label2: "Hide Chart",
-        bgColor: "green",
-        bgColor2: "grey",
-      },
-    },
+    inputs: {},
+    outputs: {},
   });
 
   // METHODS
@@ -150,6 +107,47 @@ export default function FormFactory() {
 
   // LIFECYCLE METHODS
 
+  onMounted(async () => {
+    let inputs = {};
+    console.log("MOUNTED!!! 1");
+
+    // INPUTS
+    const querySnapshot = await getDocs(collection(db, "inputs"));
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id, " => ", doc.data());
+      let data = doc.data();
+      let id = doc.id;
+
+      inputs = {
+        ...inputs,
+        [id]: data,
+      };
+    });
+    formData.value.inputs = { ...inputs };
+
+    console.log("myObject inputs", inputs);
+    console.log("formData.value.inputs", formData.value.inputs);
+
+    // OUTPUTS
+    let outputs = {};
+    const oquerySnapshot = await getDocs(collection(db, "outputs"));
+    oquerySnapshot.forEach((doc) => {
+      console.log(doc.id, " => ", doc.data());
+      let data = doc.data();
+      let id = doc.id;
+
+      outputs = {
+        ...outputs,
+        [id]: data,
+      };
+    });
+    formData.value.outputs = { ...outputs };
+
+    console.log("myObject outputs", outputs);
+    console.log("formData.value.outputs", formData.value.outputs);
+    isLoaded.value = true;
+  });
+
   // COMPUTED
 
   const showChartButtonLabel = computed(() => {
@@ -178,5 +176,6 @@ export default function FormFactory() {
     toggleChart,
     showChartButtonLabel,
     showChartButtonColor,
+    isLoaded,
   };
 }

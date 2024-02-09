@@ -1,7 +1,8 @@
 <template>
   <q-page class="column row q-pa-sm" :key="randomKey">
     <h6 class="row">#Version1</h6>
-    <div class="row">
+    <div v-if="!isLoaded">Yükleniyor</div>
+    <div v-if="isLoaded" class="row">
       <!-- Inputs form -->
 
       <q-form class="col-2 q-px-xs">
@@ -66,6 +67,23 @@ import { VuePlotly } from "vue3-plotly";
 import Plotly from "plotly.js-dist";
 import FormFactory from "../factories/FormFactory";
 
+// const mounted = onMounted(async () => {
+//   let myObject = {};
+//   console.log("MOUNTED!!! 1");
+//   const querySnapshot = await getDocs(collection(db, "inputs"));
+//   querySnapshot.forEach((doc) => {
+//     console.log(doc.id, " => ", doc.data());
+//     let data = doc.data();
+//     let id = doc.id;
+
+//     myObject = {
+//       ...myObject,
+//       [id]: data,
+//     };
+//   });
+//   console.log("myObject", myObject);
+// });
+
 const router = useRouter();
 const route = useRoute();
 
@@ -83,6 +101,7 @@ const {
   toggleChart,
   showChartButtonLabel,
   showChartButtonColor,
+  isLoaded,
 } = FormFactory();
 
 console.log("myChartData", myChartData);

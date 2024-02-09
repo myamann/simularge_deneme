@@ -1,11 +1,11 @@
 <template>
   <q-page class="column row q-pa-sm" :key="randomKey">
     <h6 class="row">#Version2</h6>
-    <div v-if="!isLoaded">Yükleniyor</div>
-    <div v-if="isLoaded" class="row">
+    <div v-if="!isLoaded">Loading</div>
+    <div v-if="isLoaded" class="flex column q-gutter-md">
       <!-- Inputs form -->
 
-      <q-form class="col-2 q-px-xs">
+      <q-form class="col-2 q-px-xs maxWidth">
         <q-input
           filled
           v-model="formData.inputs.ID0.label"
@@ -15,13 +15,11 @@
 
         <q-input filled v-model="xAxis" :label="formData.inputs.ID1.label" />
         <q-input filled v-model="yAxis" :label="formData.inputs.ID2.label" />
-
-        <q-btn @click="execute" label="EXECUTE" color="primary"></q-btn>
       </q-form>
 
       <!-- Outputs form -->
 
-      <q-form class="col-2 q-px-xs">
+      <q-form class="col-2 q-px-xs maxWidth">
         <q-input
           filled
           v-model="formData.outputs.ID0.label"
@@ -43,11 +41,19 @@
         />
 
         <q-btn
+          v-if="false"
           @click="toggleChart"
           :label="showChartButtonLabel"
           :color="showChartButtonColor"
         ></q-btn>
       </q-form>
+
+      <q-btn
+        class="maxWidth"
+        @click="execute"
+        label="EXECUTE"
+        color="primary"
+      ></q-btn>
 
       <div v-show="isChartVisible" class="col-5 chartContainer" id="graph">
         <VuePlotly
@@ -91,6 +97,7 @@ console.log("myChartData", myChartData);
 </script>
 
 <style scoped>
-.chartContainer {
+.maxWidth {
+  max-width: 400px;
 }
 </style>

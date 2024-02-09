@@ -1,7 +1,7 @@
 <template>
   <q-page class="column row q-pa-sm" :key="randomKey">
     <h6 class="row">#Version4 Premium</h6>
-    <div v-if="!isLoaded">Yükleniyor</div>
+    <div v-if="!isLoaded">Loading</div>
 
     <div v-if="isLoaded" class="row">
       <!-- Inputs form -->
@@ -89,7 +89,4 @@ const {
 } = FormFactory();
 </script>
 
-<style scoped>
-.chartContainer {
-}
-</style>
+<style scoped></style>

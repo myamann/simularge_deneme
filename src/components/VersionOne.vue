@@ -1,7 +1,7 @@
 <template>
   <q-page class="column row q-pa-sm" :key="randomKey">
     <h6 class="row">#Version1</h6>
-    <div v-if="!isLoaded">Yükleniyor</div>
+    <div v-if="!isLoaded">Loading</div>
     <div v-if="isLoaded" class="row">
       <!-- Inputs form -->
 
@@ -43,6 +43,7 @@
         />
 
         <q-btn
+          v-if="false"
           @click="toggleChart"
           :label="showChartButtonLabel"
           :color="showChartButtonColor"
@@ -107,7 +108,4 @@ const {
 console.log("myChartData", myChartData);
 </script>
 
-<style scoped>
-.chartContainer {
-}
-</style>
+<style scoped></style>

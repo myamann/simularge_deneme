@@ -1,7 +1,7 @@
 <template>
   <q-page class="column row q-pa-sm" :key="randomKey">
     <h6 class="row">#Version3</h6>
-    <div v-if="!isLoaded">Yükleniyor</div>
+    <div v-if="!isLoaded">Loading</div>
 
     <div v-if="isLoaded" class="row">
       <!-- Inputs form -->
@@ -16,8 +16,6 @@
 
         <q-input filled v-model="xAxis" :label="formData.inputs.ID1.label" />
         <q-input filled v-model="yAxis" :label="formData.inputs.ID2.label" />
-
-        <q-btn @click="execute" label="EXECUTE" color="primary"></q-btn>
       </q-form>
 
       <!-- Outputs form -->
@@ -44,11 +42,14 @@
         />
 
         <q-btn
+          v-if="false"
           @click="toggleChart"
           :label="showChartButtonLabel"
           :color="showChartButtonColor"
         ></q-btn>
       </q-form>
+
+      <q-btn class="" @click="execute" label="EXECUTE" color="primary"></q-btn>
 
       <div v-show="isChartVisible" class="col-5 chartContainer" id="graph">
         <VuePlotly
@@ -89,7 +90,4 @@ const {
 } = FormFactory();
 </script>
 
-<style scoped>
-.chartContainer {
-}
-</style>
+<style scoped></style>

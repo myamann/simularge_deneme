@@ -43,7 +43,7 @@ const projectStore = useProjectStore();
 
 const linksList = ref([
   {
-    title: "MAINPAGE",
+    title: "HOMEPAGE",
     caption: "Choose versions",
     icon: "home",
     link: "/",

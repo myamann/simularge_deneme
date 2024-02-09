@@ -4,6 +4,8 @@ import { VuePlotly } from "vue3-plotly";
 import Plotly from "plotly.js-dist";
 import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
 import { db } from "../firebase/index";
+import { useProjectStore } from "../stores/store";
+const projectStore = useProjectStore();
 
 export default function FormFactory() {
   const router = useRouter();
@@ -17,6 +19,7 @@ export default function FormFactory() {
   const Multiplication = ref(0);
   const isChartVisible = ref(false);
   const isLoaded = ref(false);
+  const isUserPremium = ref(projectStore.isUserPremium);
 
   const MAX_DATA_POINTS = ref(5);
 
@@ -51,7 +54,7 @@ export default function FormFactory() {
 
     // x ve y axisleri 20den fazla olamaz!
     if (sum > 20 || sum < 0 || multiply > 20 || multiply < 0) {
-      alert("Addition ve Multiplication değerleri 20den fazla olamaz!");
+      alert("Addition and Multiplication values ​​cannot be more than 20!");
       return;
     }
 
@@ -110,6 +113,7 @@ export default function FormFactory() {
   onMounted(async () => {
     let inputs = {};
     console.log("MOUNTED!!! 1");
+    console.log("İSUSERPREMUM", isUserPremium.value);
 
     // INPUTS
     const querySnapshot = await getDocs(collection(db, "inputs"));

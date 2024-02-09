@@ -1,113 +1,59 @@
 <template>
   <q-page class="flex flex-center justify-around">
     <div class="container q-gutter-lg q-pa-md">
-      <div class="col-3">
-        <q-card class="my-card bg-secondary text-white cardWidth">
-          <q-card-section>
-            <div class="text-h6">VERSION 1</div>
-            <!-- <div class="text-subtitle2">by John Doe</div> -->
-          </q-card-section>
-
-          <q-card-section>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </q-card-section>
-
-          <q-separator dark />
-
-          <q-card-actions>
-            <q-btn outline @click="goToFormPage('version_one')">
-              Forma Git</q-btn
-            >
-          </q-card-actions>
-        </q-card>
-      </div>
-      <div class="col-3">
-        <q-card class="my-card bg-secondary text-white cardWidth">
-          <q-card-section>
-            <div class="text-h6">VERSION 2</div>
-          </q-card-section>
-
-          <q-card-section>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </q-card-section>
-
-          <q-separator dark />
-
-          <q-card-actions>
-            <q-btn outline @click="goToFormPage('version_two')"
-              >Forma Git</q-btn
-            >
-          </q-card-actions>
-        </q-card>
-      </div>
-
-      <div class="col-3">
-        <q-card class="my-card bg-secondary text-white cardWidth">
-          <q-card-section>
-            <div class="text-h6">VERSION 3</div>
-          </q-card-section>
-
-          <q-card-section>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </q-card-section>
-
-          <q-separator dark />
-
-          <q-card-actions>
-            <q-btn outline @click="goToFormPage('version_three')">
-              Forma Git</q-btn
-            >
-          </q-card-actions>
-        </q-card>
-      </div>
-
-      <div class="col-3">
-        <q-card class="my-card bg-primary text-white cardWidth">
-          <q-card-section>
-            <div class="text-h6">VERSION 4 - PREMIUM</div>
-          </q-card-section>
-
-          <q-card-section>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </q-card-section>
-
-          <q-separator dark />
-
-          <q-card-actions>
-            <q-btn outline @click="goToFormPage('version_four')"
-              >Forma Git</q-btn
-            >
-          </q-card-actions>
-        </q-card>
+      <div v-for="(card, index) in cardList" :key="index">
+        <FormCard
+          :title="card.title"
+          :description="card.description"
+          :isPremium="card.isPremium"
+          :link="card.link"
+          :color="card.color"
+        />
       </div>
     </div>
   </q-page>
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, onBeforeMount, computed } from "vue";
-import { useRoute, useRouter } from "vue-router";
-import { useProjectStore } from "../stores/store";
+import { ref } from "vue";
 
-const router = useRouter();
-// const route = useRoute();
-const projectStore = useProjectStore();
+import FormCard from "../components/cards/FormCard.vue";
 
 // STATES
-const isUserPremium = ref(projectStore.isUserPremium);
-
-function goToFormPage(formType) {
-  console.log("goToFormPage", formType);
-  if (isUserPremium.value == false && formType == "version_four") {
-    alert("Lütfem Premium Üyelik Alın.");
-  } else {
-    router.push(`/${formType}`);
-  }
-}
+const cardList = ref([
+  {
+    title: "Version 1",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    isPremium: false,
+    link: "version_one",
+    color: "bg-green",
+  },
+  {
+    title: "Version 2",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    isPremium: false,
+    link: "version_two",
+    color: "bg-green",
+  },
+  {
+    title: "Version 3",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    isPremium: false,
+    link: "version_three",
+    color: "bg-green",
+  },
+  {
+    title: "Version 4",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    isPremium: true,
+    link: "version_four",
+    color: "bg-primary",
+  },
+]);
 </script>
 
 <style scoped>
@@ -115,8 +61,5 @@ function goToFormPage(formType) {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-}
-.cardWidth {
-  width: 250px;
 }
 </style>

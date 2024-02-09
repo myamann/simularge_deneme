@@ -40,7 +40,6 @@ const projectStore = useProjectStore();
 const isUserPremium = ref(projectStore.isUserPremium);
 
 function goToFormPage(version) {
-  console.log("goToFormPage", version);
   if (isUserPremium.value == false && props.link == "version_four") {
     alert("Please Get Premium Membership.");
   } else {

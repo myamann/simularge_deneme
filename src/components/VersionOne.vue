@@ -68,23 +68,6 @@ import { VuePlotly } from "vue3-plotly";
 import Plotly from "plotly.js-dist";
 import FormFactory from "../factories/FormFactory";
 
-// const mounted = onMounted(async () => {
-//   let myObject = {};
-//   console.log("MOUNTED!!! 1");
-//   const querySnapshot = await getDocs(collection(db, "inputs"));
-//   querySnapshot.forEach((doc) => {
-//     console.log(doc.id, " => ", doc.data());
-//     let data = doc.data();
-//     let id = doc.id;
-
-//     myObject = {
-//       ...myObject,
-//       [id]: data,
-//     };
-//   });
-//   console.log("myObject", myObject);
-// });
-
 const router = useRouter();
 const route = useRoute();
 
@@ -104,8 +87,6 @@ const {
   showChartButtonColor,
   isLoaded,
 } = FormFactory();
-
-console.log("myChartData", myChartData);
 </script>
 
 <style scoped></style>

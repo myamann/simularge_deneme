@@ -38,7 +38,6 @@ export default route(function (/* { store, ssrContext } */) {
   Router.beforeEach((to, from, next) => {
     const projectStore = useProjectStore();
 
-    console.log("PİNİAA", projectStore.isUserPremium);
     if (to.meta.requiresPremium && projectStore.isUserPremium == false) {
       // Kullanıcı oturum açmamışsa ve giriş gerekiyorsa
       next("/");

@@ -92,8 +92,6 @@ const {
   showChartButtonColor,
   isLoaded,
 } = FormFactory();
-
-console.log("myChartData", myChartData);
 </script>
 
 <style scoped>

@@ -105,20 +105,17 @@ export default function FormFactory() {
   // Grafik gösterme işlemi
   const toggleChart = () => {
     isChartVisible.value = !isChartVisible.value;
-    console.log("showcart value", isChartVisible.value);
   };
 
   // LIFECYCLE METHODS
 
   onMounted(async () => {
     let inputs = {};
-    console.log("MOUNTED!!! 1");
-    console.log("İSUSERPREMUM", isUserPremium.value);
 
     // INPUTS
     const querySnapshot = await getDocs(collection(db, "inputs"));
     querySnapshot.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
+      // console.log(doc.id, " => ", doc.data());
       let data = doc.data();
       let id = doc.id;
 
@@ -129,14 +126,11 @@ export default function FormFactory() {
     });
     formData.value.inputs = { ...inputs };
 
-    console.log("myObject inputs", inputs);
-    console.log("formData.value.inputs", formData.value.inputs);
-
     // OUTPUTS
     let outputs = {};
     const oquerySnapshot = await getDocs(collection(db, "outputs"));
     oquerySnapshot.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
+      // console.log(doc.id, " => ", doc.data());
       let data = doc.data();
       let id = doc.id;
 
@@ -147,8 +141,6 @@ export default function FormFactory() {
     });
     formData.value.outputs = { ...outputs };
 
-    console.log("myObject outputs", outputs);
-    console.log("formData.value.outputs", formData.value.outputs);
     isLoaded.value = true;
   });
 
